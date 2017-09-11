@@ -2,6 +2,7 @@
 
 Temporary and unobtrusive translucent alert view for iOS.
 
+![Demo](https://media.giphy.com/media/l378oq9EG6yJqjgfS/giphy.gif)
 
 ## Details
 
