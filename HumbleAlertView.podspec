@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author             = { "okaris" => "ok@okaris.com" }
   s.social_media_url   = "http://twitter.com/okarisman"
   s.source       = { :git => "https://github.com/svtek/HumbleAlertView.git", :tag => "#{s.version}" }
-  s.source_files = 'HumbleAlertView.swift'
+  s.source_files = 'Classes/*.swift'
   s.ios.deployment_target = '9.0'
   s.framework    =  'QuartzCore'
 end

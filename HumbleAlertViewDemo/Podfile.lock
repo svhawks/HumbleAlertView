@@ -1,0 +1,16 @@
+PODS:
+  - HumbleAlertView (1.0.0)
+
+DEPENDENCIES:
+  - HumbleAlertView (from `../`)
+
+EXTERNAL SOURCES:
+  HumbleAlertView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  HumbleAlertView: 69058c4b1e8d8ceb986070ffa4c5fe05e7deb1d0
+
+PODFILE CHECKSUM: 8c958ed25b4efd3a45096b7882593b6facf7dd4a
+
+COCOAPODS: 1.3.1

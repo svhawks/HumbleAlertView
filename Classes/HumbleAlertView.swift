@@ -1,20 +1,20 @@
 import QuartzCore
 import UIKit
 
-enum HumbleAlertViewPosition : Int {
+public enum HumbleAlertViewPosition : Int {
   case bottom
   case center
   case top
 }
 
-enum HumbleAlertViewStyle : Int {
+public enum HumbleAlertViewStyle : Int {
   case light
   case dark
   case standart
 }
 
 
-class HumbleAlertView: UIView {
+public class HumbleAlertView: UIView {
   /**
    Equivalent to `initWithTitle:message:timeout:dismissible:`, but assumes default values for `message` (nil) `timeout` (4 seconds) and `dismissible` (YES).
    @param title The string that appears in the view's title label.
@@ -25,7 +25,7 @@ class HumbleAlertView: UIView {
 
    The default value is `HumbleAlertViewPositionBottom`.
    */
-  var position = HumbleAlertViewPosition(rawValue: 0)!
+  public var position = HumbleAlertViewPosition(rawValue: 0)!
   /**
    The visual style of the view.
 
@@ -34,7 +34,7 @@ class HumbleAlertView: UIView {
    The default value is `HumbleAlertViewStyleDefault`, which maps to `HumbleAlertViewStyleLight`.
    */
   private var _style = HumbleAlertViewStyle(rawValue: 0)!
-  var style: HumbleAlertViewStyle {
+  public var style: HumbleAlertViewStyle {
     get {
       return _style
     }
@@ -62,7 +62,7 @@ class HumbleAlertView: UIView {
    A margin that prevents the alert from drawing above it.
    */
   private var _topContentMargin: CGFloat = 0.0
-  var topContentMargin: CGFloat {
+  public var topContentMargin: CGFloat {
     get {
       return _topContentMargin
     }
@@ -75,7 +75,7 @@ class HumbleAlertView: UIView {
    A margin that prevents the alert from drawing below it.
    */
   private var _bottomContentMargin: CGFloat = 0.0
-  var bottomContentMargin: CGFloat {
+  public var bottomContentMargin: CGFloat {
     get {
       return _bottomContentMargin
     }
@@ -87,12 +87,12 @@ class HumbleAlertView: UIView {
   /**
    A block to execute after the instance has been dismissed.
    */
-  var completionBlock: (() -> Void)? = nil
+  public var completionBlock: (() -> Void)? = nil
   /**
    The string that appears in the title of the alert.
    */
   private var _title: String = ""
-  var title: String {
+  public var title: String {
     get {
       return _title
     }
@@ -106,7 +106,7 @@ class HumbleAlertView: UIView {
    Descriptive text that provides more details than the title.
    */
   private var _message: String = ""
-  var message: String {
+  public var message: String {
     get {
       return _message
     }
@@ -119,20 +119,20 @@ class HumbleAlertView: UIView {
   /**
    The label that displays the title.
    */
-  var titleLabel: UILabel?
+  public var titleLabel: UILabel?
   /**
    The label that displays the message.
    */
-  var messageLabel: UILabel?
+  public var messageLabel: UILabel?
   /**
    Time interval before the alert is automatically dismissed.
    */
-  var timeout = TimeInterval()
+  public var timeout = TimeInterval()
   /**
    Whether the alert can be dismissed with a tap or not.
    */
   private var _isDismissible: Bool = false
-  var isDismissible: Bool {
+  public var isDismissible: Bool {
     get {
       return _isDismissible
     }
@@ -161,7 +161,7 @@ class HumbleAlertView: UIView {
 
   // MARK: - Initialization
 
-  convenience init(title: String?) {
+  public convenience init(title: String?) {
     self.init(title: title, message: nil, timeout: 4, dismissible: true)
   }
 
@@ -170,7 +170,7 @@ class HumbleAlertView: UIView {
    @param title The string that appears in the view's title label.
    @param message Descriptive text that provides more details than the title. Can be nil.
    */
-  convenience init(title: String?, message: String?) {
+  public convenience init(title: String?, message: String?) {
     self.init(title: title, message: message, timeout: 6, dismissible: true)
   }
 
@@ -181,7 +181,7 @@ class HumbleAlertView: UIView {
    @param timeout Time interval before the alert is automatically dismissed.
    @param dismissible Whether the alert can be dismissed with a tap or not.
    */
-  convenience init(title: String?, message: String?, timeout: TimeInterval, dismissible: Bool) {
+  public convenience init(title: String?, message: String?, timeout: TimeInterval, dismissible: Bool) {
     self.init(frame: CGRect.zero)
 
     self.title = ((title != nil) ? title! : "")
@@ -194,7 +194,7 @@ class HumbleAlertView: UIView {
   /**
    Shows the HumbleAlertView on top of the frontmost view controller.
    */
-  func show() {
+  public func show() {
     if title.isEmpty && message.isEmpty {
       print("HumbleAlertView: Your alert doesn't have any content.")
     }
@@ -212,7 +212,7 @@ class HumbleAlertView: UIView {
   /**
    Shows the HumbleAlertView on top of the given `view`.
    */
-  func show(in view: UIView) {
+  public func show(in view: UIView) {
     for subview: UIView in view.subviews {
       if (subview is HumbleAlertView) {
         let otherHAV: HumbleAlertView? = (subview as? HumbleAlertView)
@@ -231,7 +231,7 @@ class HumbleAlertView: UIView {
   /**
    Hides the HumbleAlertView.
    */
-  @objc func hide() {
+  @objc public func hide() {
     NSObject.cancelPreviousPerformRequests(withTarget: self)
     UIView.animate(withDuration: 0.5, animations: {() -> Void in
       self.alpha = 0
@@ -248,21 +248,27 @@ class HumbleAlertView: UIView {
     super.init(frame: frame)
 
     layer.cornerRadius = 5.0
-    backgroundColor = UIColor(white: 0, alpha: 0.45)
-    alpha = 0
     layer.shadowColor = UIColor(white: 0, alpha: 0.1).cgColor
     layer.shadowOffset = CGSize(width: 0, height: 0)
     layer.shadowOpacity = 1.0
     layer.shadowRadius = 30.0
+
+    backgroundColor = UIColor(white: 0, alpha: 0.45)
+    alpha = 0
+
     let motionEffects = UIMotionEffectGroup()
+
     let horizontalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
     horizontalMotionEffect.minimumRelativeValue = -14
     horizontalMotionEffect.maximumRelativeValue = 14
+
     let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
     verticalMotionEffect.minimumRelativeValue = -18
     verticalMotionEffect.maximumRelativeValue = 18
+
     motionEffects.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
     addMotionEffect(motionEffects)
+
     titleLabel = UILabel(frame: CGRect(x: HORIZONTAL_PADDING, y: VERTICAL_PADDING, width: 0, height: 0))
     titleLabel?.backgroundColor = UIColor.clear
     titleLabel?.textColor = UIColor.white
@@ -272,6 +278,7 @@ class HumbleAlertView: UIView {
     titleLabel?.lineBreakMode = .byWordWrapping
     titleLabel?.autoresizingMask = ([.flexibleWidth, .flexibleHeight])
     addSubview(titleLabel!)
+
     messageLabel = UILabel(frame: CGRect(x: Int(HORIZONTAL_PADDING), y: 0, width: 0, height: 0))
     messageLabel?.backgroundColor = UIColor.clear
     messageLabel?.textColor = UIColor.white
@@ -281,15 +288,18 @@ class HumbleAlertView: UIView {
     messageLabel?.lineBreakMode = .byWordWrapping
     messageLabel?.autoresizingMask = ([.flexibleWidth, .flexibleHeight])
     addSubview(messageLabel!)
+
     style = .standart
     position = .bottom
     interfaceOrientation = UIApplication.shared.statusBarOrientation
+
     if UI_USER_INTERFACE_IDIOM() == .phone {
       innerMargin = 25
     }
     else {
       innerMargin = 50
     }
+    
     dismissTap = UITapGestureRecognizer(target: self, action: #selector(self.hide))
     NotificationCenter.default.addObserver(self, selector: #selector(self.didChangeOrientation), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -297,14 +307,14 @@ class HumbleAlertView: UIView {
     
   }
 
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 
   // MARK: - Show and hide
 
   // MARK: - View layout
-  override func layoutSubviews() {
+  override public func layoutSubviews() {
     var maxWidth: CGFloat = 0
     var totalLabelWidth: CGFloat = 0
     var totalHeight: CGFloat = 0
@@ -318,10 +328,10 @@ class HumbleAlertView: UIView {
     var constrainedSize = CGSize.zero
     constrainedSize.width = maxWidth
     constrainedSize.height = CGFloat(MAXFLOAT)
-    let titleSize: CGSize? = title.boundingRect(with: constrainedSize, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: titleLabel?.font!], context: nil).size
+    let titleSize: CGSize? = title.boundingRect(with: constrainedSize, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: (titleLabel?.font)!], context: nil).size
     var messageSize = CGSize.zero
     if message != "" {
-      messageSize = message.boundingRect(with: constrainedSize, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: messageLabel?.font!], context: nil).size
+      messageSize = message.boundingRect(with: constrainedSize, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: (messageLabel?.font)!], context: nil).size
       totalHeight = (titleSize?.height)! + messageSize.height + floor(VERTICAL_PADDING * 2.5)
     }
     else {
