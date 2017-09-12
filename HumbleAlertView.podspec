@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HumbleAlertView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Temporary and unobtrusive translucent alert view for iOS."
   s.description  = <<-DESC
   HumbleAlertView is a humble view to display automagically disappearing information to your users.
