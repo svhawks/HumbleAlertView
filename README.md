@@ -163,7 +163,7 @@ Help us make this better
 We built HumbleAlertView because we needed it for one of our projects. If you improve it in any way, please send us a pull request. Enjoy!
 
 ## Author
-| [<img src="https://avatars1.githubusercontent.com/u/1448702?v=4" width="100px;"/>](http://okaris.com)   | [Omer Karisman](http://okaris.com)<br/><br/><sub>Lead UI/UX @ [MojiLaLa](http://mojilala.com)</sub><br/> [![Twitter][1.1]][1] [![Dribble][2.1]][2] [![Github][3.1]][3]| [<img src="hhttps://pbs.twimg.com/profile_images/1331045707961274368/-YifJbqn_400x400.jpg" width="100px;"/>](https://twitter.com/sahin)   | [Sahin Boydas](https://twitter.com/sahin)<br/><br/><sub>Founder @ [RemoteTeam.com](https://www.remtoeteam.com)</sub><br/> [![LinkedIn][4.1]][4]|
+| [<img src="https://avatars1.githubusercontent.com/u/1448702?v=4" width="100px;"/>](http://okaris.com)   | [Omer Karisman](http://okaris.com)<br/><br/><sub>Lead UI/UX @ [MojiLaLa](http://mojilala.com)</sub><br/> [![Twitter][1.1]][1] [![Dribble][2.1]][2] [![Github][3.1]][3]| [<img src="https://pbs.twimg.com/profile_images/1331045707961274368/-YifJbqn_400x400.jpg" width="100px;"/>](https://twitter.com/sahin)   | [Sahin Boydas](https://twitter.com/sahin)<br/><br/><sub>Founder @ [RemoteTeam.com](https://www.remtoeteam.com)</sub><br/> [![LinkedIn][4.1]][4]|
 | - | :- | - | :- |
 
 [1.1]: http://i.imgur.com/wWzX9uB.png (twitter icon without padding)
